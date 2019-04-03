@@ -2,7 +2,7 @@
 $('#list_title').val('');
 
 // Hide and FadeIn newly created List
-  $('.table-body').append('<tr></tr>');
+  $('.table-body').append('<tr class="row-' + <%= @list.id %> + '"></tr>');
   $lastRow = $('.table-body tr:last');
   //Hide Row
   $lastRow.hide();
