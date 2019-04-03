@@ -1,0 +1,12 @@
+// New List Form Partial
+.new_list {
+  margin-bottom: 20px;
+
+  input {
+    width: 100%;
+    font-size: 1.3rem;
+  }
+  input[type="submit"] {
+    display: none;
+  }
+}

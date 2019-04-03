@@ -1,0 +1,26 @@
+<table class="table table-dark list-table">
+  <thead>
+    <tr>
+      <th scope="col">Index</th>
+      <th scope="col">List Name</th>
+      <th scope="col">List Link</th>
+    </tr>
+  </thead>
+  <tbody class="table-body">
+    <% lists.each.with_index(1) do |list,i| %>
+      <tr>
+        <th scope="row"><%= i %></th>
+        <td><%= list.title %></td>
+        <td><%= link_to "View", list, class: 'btn btn-primary list-link' %></td>
+        <td>
+          <%= button_to "Delete",
+               lists_url(@list),
+               class: 'btn btn-danger',
+               method: 'destroy',
+               data: { confirm: 'Are you sure you want to remove?'}
+          %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

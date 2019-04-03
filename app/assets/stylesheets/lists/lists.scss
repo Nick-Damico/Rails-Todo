@@ -1,7 +1,6 @@
 // Place all the styles related to the Lists controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
 .list-heading {
   color: white;
   font-weight: lighter;
@@ -22,18 +21,4 @@
 
 .list-link {
   color: navy;
-}
-
-
-// New List Form Partial
-.new_list {
-  margin-bottom: 20px;
-
-  input {
-    width: 100%;
-    font-size: 1.3rem;
-  }
-  input[type="submit"] {
-    display: none;
-  }
 }

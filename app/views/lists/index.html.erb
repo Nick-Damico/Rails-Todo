@@ -2,26 +2,13 @@
 
 <div class="row">
   <div class="col-sm-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
-    <table class="table table-dark list-table">
-      <thead>
-        <tr>
-          <th scope="col">Index</th>
-          <th scope="col">List Name</th>
-          <th scope="col">List Link</th>
-        </tr>
-      </thead>
-      <tbody class="table-body">
-        <% @lists.each.with_index(1) do |list,i| %>
-          <tr>
-            <th scope="row"><%= i %></th>
-            <td><%= list.title %></td>
-            <td><%= link_to "View", list, class: 'btn btn-primary list-link' %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+
+    <%= render partial: 'lists-table', locals: { lists: @lists } %>
+
     <div id="newTask">
+
       <%= link_to "Create List", new_list_path, class: 'create-list btn btn-primary lg', remote: true %>
+
     </div>
-  </div>
+</div>
 </div>
