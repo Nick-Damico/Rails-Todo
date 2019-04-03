@@ -1,4 +1,6 @@
 let $newTaskContainer = $('#newTask');
+// Hide Button
 $('.create-list').fadeOut(500);
 
+// Add New List Form, Add to DOM
 $newTaskContainer.prepend('<%= j render partial: 'form', locals: {list: @list} %>')

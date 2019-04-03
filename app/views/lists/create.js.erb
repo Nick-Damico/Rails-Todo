@@ -1,0 +1,12 @@
+// Clear Input Form
+$('#list_title').val('');
+
+// Hide and FadeIn newly created List
+  $('.table-body').append('<tr></tr>');
+  $lastRow = $('.table-body tr:last');
+  //Hide Row
+  $lastRow.hide();
+  // Add newly creted list, FadeIn
+  $lastRow
+  .append('<%= j render( partial: 'todo-item', locals: {list: @list}) %>')
+  .fadeIn(1000);

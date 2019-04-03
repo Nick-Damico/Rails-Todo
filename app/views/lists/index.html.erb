@@ -10,12 +10,12 @@
           <th scope="col">List Link</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody class="table-body">
         <% @lists.each.with_index(1) do |list,i| %>
           <tr>
             <th scope="row"><%= i %></th>
             <td><%= list.title %></td>
-            <td><%= link_to "View", list, class: 'list-link' %></td>
+            <td><%= link_to "View", list, class: 'btn btn-primary list-link' %></td>
           </tr>
         <% end %>
       </tbody>

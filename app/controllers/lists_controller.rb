@@ -9,7 +9,15 @@ class ListsController < ApplicationController
   end
 
   def create
-    byebug
+    @list = List.create(list_params)
+    if @list.save
+      respond_to do |format|
+        format.html { redirect_to lists_url }
+        format.js 
+      end
+    else
+      render :index
+    end
   end
 
   def show
@@ -18,5 +26,9 @@ class ListsController < ApplicationController
   private
     def set_list
       @list = List.find(params[:id])
+    end
+
+    def list_params
+      params.require(:list).permit(:title, :completed)
     end
 end
