@@ -1,7 +1,11 @@
 class ListsController < ApplicationController
-  before_action :set_list, only: [:show]
+  before_action :set_list, only: [:show, :destroy]
   def index
     @lists = List.all
+    respond_to do |format|
+      format.html
+      format.js { render :layout => 'fadein' }
+    end
   end
 
   def new
@@ -13,7 +17,7 @@ class ListsController < ApplicationController
     if @list.save
       respond_to do |format|
         format.html { redirect_to lists_url }
-        format.js 
+        format.js
       end
     else
       render :index
@@ -21,6 +25,18 @@ class ListsController < ApplicationController
   end
 
   def show
+    respond_to do |format|
+      format.html
+      format.js { render :layout => 'fadein' }
+    end
+  end
+
+  def destroy
+    @list.destroy
+    respond_to do |format|
+      format.html { redirect_to lists_path }
+      format.js
+    end
   end
 
   private

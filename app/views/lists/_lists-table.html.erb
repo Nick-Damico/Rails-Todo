@@ -11,13 +11,19 @@
       <tr>
         <th scope="row"><%= i %></th>
         <td><%= list.title %></td>
-        <td><%= link_to "View", list, class: 'btn btn-primary list-link' %></td>
+        <td>
+          <%= link_to "View", list,
+            class: 'btn btn-primary list-link',
+            remote: true
+          %>
+        </td>
         <td>
           <%= button_to "Delete",
-               lists_url(@list),
-               class: 'btn btn-danger',
-               method: 'destroy',
-               data: { confirm: 'Are you sure you want to remove?'}
+               list_url(list),
+               class: 'btn btn-danger delete-list__btn',
+               method: 'delete',
+               data: { confirm: 'Are you sure you want to remove?'},
+               remote: true
           %>
         </td>
       </tr>
