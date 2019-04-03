@@ -1,0 +1,4 @@
+let $newItemContainer = $('#newItemContainer');
+
+// Add New List Form, Add to DOM
+$newItemContainer.prepend('<%= j render partial: 'form', locals: {list: @list, list_item: @list_item} %>')

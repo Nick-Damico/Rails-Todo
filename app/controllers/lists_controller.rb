@@ -31,6 +31,9 @@ class ListsController < ApplicationController
     end
   end
 
+  def update
+  end
+
   def destroy
     @list.destroy
     respond_to do |format|

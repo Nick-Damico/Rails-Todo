@@ -12,22 +12,18 @@
       </thead>
       <tbody>
         <% @list.list_items.each do |item| %>
-          <tr>
-            <td scope="row">
-              <input type="checkbox" name="list[completed]" value="true" <%= 'checked' if item.completed %>>
-            </td>
-            <td><%= item.name %></td>
-            <td><button class="btn btn-danger">Delete</button></td>
-          </tr>
-          <tr>
-            <%= form_for @list do |f| %>
 
-            <% end %>
-          </tr>
+          <%= render partial: 'list_items/list-item', locals: { item: item } %>
+
         <% end %>
       </tbody>
     </table>
+    <div id="newItemContainer">
 
-    <%= link_to "Create List", new_list_path, class: 'btn btn-primary lg' %>
+    </div>
+    <%= link_to "Add Item",
+      new_list_list_item_path(@list),
+      class: 'btn btn-primary new-item',
+      remote: true %>
   </div>
 </div>
