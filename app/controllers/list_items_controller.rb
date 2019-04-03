@@ -1,5 +1,12 @@
 class ListItemsController < ApplicationController
   before_action :set_list
+  def index
+      @list_items = @list.list_items.all
+      respond_to do |format|
+        format.json { render json: @list_items }
+      end
+  end
+
   def show; end
 
   def new
@@ -10,13 +17,22 @@ class ListItemsController < ApplicationController
     end
   end
 
-  def create    
+  def create
     @list_item = @list.list_items.create(list_item_params)
     if @list_item.save
       respond_to do |format|
         format.html
         format.js
       end
+    end
+  end
+
+  def destroy
+    @list_item = @list.list_items.find(params[:id])
+    @list_item.delete
+    respond_to do |format|
+      format.html
+      format.js
     end
   end
 

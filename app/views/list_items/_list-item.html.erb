@@ -1,7 +1,14 @@
-<tr>
+<tr class="row-<%= item.id %>">
   <td scope="row">
     <input type="checkbox" name="list[completed]" value="true" <%= 'checked' if item.completed %>>
   </td>
   <td><%= item.name %></td>
-  <td><button class="btn btn-danger">Delete</button></td>
+  <td>
+    <%= link_to "Remove",
+      list_list_item_path(list,item),
+      method: 'delete',
+      class: 'btn btn-danger delete-item__btn',
+      remote: true
+    %>
+  </td>
 </tr>

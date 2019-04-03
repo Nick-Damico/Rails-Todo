@@ -13,7 +13,7 @@
       <tbody>
         <% @list.list_items.each do |item| %>
 
-          <%= render partial: 'list_items/list-item', locals: { item: item } %>
+          <%= render partial: 'list_items/list-item', locals: { list: @list, item: item } %>
 
         <% end %>
       </tbody>
