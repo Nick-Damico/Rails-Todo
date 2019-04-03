@@ -1,4 +1,7 @@
-let $newItemContainer = $('#newItemContainer');
+
+
+// Hide Add button
+$('.new-item').hide();
 
 // Add New List Form, Add to DOM
-$newItemContainer.prepend('<%= j render partial: 'form', locals: {list: @list, list_item: @list_item} %>')
+$('#newItemContainer').prepend('<%= j render partial: 'form', locals: {list: @list, list_item: @list_item} %>')

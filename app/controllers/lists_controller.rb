@@ -48,6 +48,9 @@ class ListsController < ApplicationController
     end
 
     def list_params
-      params.require(:list).permit(:title, :completed)
+      params.require(:list).permit(
+        :title,
+        :completed
+      )
     end
 end
