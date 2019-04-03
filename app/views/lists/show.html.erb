@@ -1,2 +1,33 @@
-<h1>Lists#show</h1>
-<p>Find me in app/views/lists/show.html.erb</p>
+<h1 class="display-4 list-heading"><%= @list.title %></h1>
+
+<div class="row">
+  <div class="col-6 offset-3">
+    <table class="table table-dark list-table">
+      <thead>
+        <tr>
+          <th scope="col">Completed</th>
+          <th scope="col">List Name</th>
+          <th scope="col">Remove</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @list.list_items.each do |item| %>
+          <tr>
+            <td scope="row">
+              <input type="checkbox" name="list[completed]" value="true" <%= 'checked' if item.completed %>>
+            </td>
+            <td><%= item.name %></td>
+            <td><button class="btn btn-danger">Delete</button></td>
+          </tr>
+          <tr>
+            <%= form_for @list do |f| %>
+
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <%= link_to "Create List", new_list_path, class: 'btn btn-primary lg' %>
+  </div>
+</div>
