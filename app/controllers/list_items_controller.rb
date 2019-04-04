@@ -10,7 +10,7 @@ class ListItemsController < ApplicationController
   def show; end
 
   def new
-    @list_item = @list.list_items.new
+    @list_item = @list.list_items.build    
     respond_to do |format|
       format.html
       format.js
